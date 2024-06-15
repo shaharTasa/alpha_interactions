@@ -18,7 +18,7 @@ def draw_file_upload():
             
             zip_ref.extractall(new_folder_path)
 
-        container.success(f"Files uploaded and saved successfully in folder: {new_folder_path}")
+        container.success(f"Files uploaded and saved successfully in folder {folder_name}")
         return new_folder_path
     else:
         container.error("Please upload a zip file.")

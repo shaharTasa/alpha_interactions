@@ -2,17 +2,13 @@ import json
 import numpy as np
 
 
-
-
 def calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,pae_threshold ,contact_prob_threshold ):
-    
-    
-
-    num_tokens = full_pae.shape[0]
+ 
+    # num_tokens = full_pae.shape[0]
     unique_chain_ids = np.unique(token_chain_ids)
-    chains = {chain_id: index+1 for index, chain_id in enumerate(unique_chain_ids)}
+    # chains = {chain_id: index+1 for index, chain_id in enumerate(unique_chain_ids)}
     inter_chain_interactions = []
-    unique_chain_ids
+
     for idx1 in range(len(unique_chain_ids)):
         for idx2 in range(idx1 + 1, len(unique_chain_ids)):
             chain_id1 = unique_chain_ids[idx1]
@@ -28,6 +24,5 @@ def calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,p
                                    sequences[idx2][pos_j - 1], pos_j, 
                                    full_pae[i, j], contact_probs[i, j])
                         inter_chain_interactions.append(interaction)
-    
     return inter_chain_interactions
 
