@@ -33,8 +33,9 @@ def draw_input_receiver():
     col1,col2=st.columns([87,13])
     if os.path.exists(DATA_STORAGE_PATH) and os.path.isdir(DATA_STORAGE_PATH):
         directories = [d for d in os.listdir(DATA_STORAGE_PATH) if os.path.isdir(os.path.join(DATA_STORAGE_PATH, d))]
+        # if len(directories) is not 0:
         path_folder = col1.selectbox('', directories,label_visibility='collapsed')
-        path=os.path.join(DATA_STORAGE_PATH, path_folder)
+        path = os.path.join(DATA_STORAGE_PATH, path_folder)
 
     if 'show_upload_file_component' not in st.session_state:
         st.session_state.show_upload_file_component = False
