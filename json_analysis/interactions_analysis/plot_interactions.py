@@ -1,11 +1,7 @@
 from streamlit_molstar import st_molstar
 import plotly.express as px
-import glob
-import os
-from streamlit_molstar.auto import st_molstar_auto
-from stmol import showmol
-import py3Dmol
-from stmol import *
+
+
 
 def create_scatter_plot(df_interactions):
     # Label for interaction pairs
@@ -27,12 +23,7 @@ def create_scatter_plot(df_interactions):
     return fig
 
 
-def visualization_protein(folder_path,model_number):
-
-    pattern = f"*_model_{model_number}.cif"
-    found_files = glob.glob(os.path.join(folder_path, pattern))
-    print(found_files)
-    if found_files:
-        cif_file_path = found_files[0]
-        st_molstar(cif_file_path, key='3')
+def visualization_protein(found_files):
+    cif_file_path = found_files[0]
+    st_molstar(cif_file_path, key='3',height=400)
 

@@ -7,6 +7,7 @@ from json_analysis.json_process.utils.extrect_data import extract_data_from_json
 from json_analysis.interactions_analysis.find_intreactions import calculate_interactions
 from json_analysis.interactions_analysis.print_interactions_results import print_output
 from json_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
+import glob
 
 
 def draw_output_data(folder_path):
@@ -56,15 +57,20 @@ def draw_output_data(folder_path):
     contact_prob_threshold = tab2.slider('Select Contact Probability Threshold', min_value=0.0, max_value=1.0, value=0.5, step=0.01)
     inter_chain_interactions = calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,pae_threshold ,contact_prob_threshold)
     df_interactions = pd.DataFrame(inter_chain_interactions,columns=['Chain_1','Residue_1','Position_1','Chain_2','Residue_2','Position_2','PAE','Probability']).sort_values(by='Probability', ascending=False)
+    print(inter_chain_interactions)
     tab2.subheader('Interactions between protein A to B')
     tab2.info('Notice : **low PAE** and **high Probability** means high probability of connection . ', icon="ℹ️")
     tab2.write(df_interactions)
+    print(inter_chain_interactions)
+
     
     heatmap_fig = create_scatter_plot(df_interactions)
     tab3.plotly_chart(heatmap_fig)
     tab3.title('CIF File Viewer for Protein Models')
-    with tab3:
-        visualization_protein(folder_path,model_number)
-  
     
-
+    pattern = f"*_model_{model_number}.cif"
+    found_files = glob.glob(os.path.join(folder_path, pattern))
+    
+    with tab3:
+        visualization_protein(found_files)
+# Streamlit app

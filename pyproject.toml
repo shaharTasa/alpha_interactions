@@ -19,6 +19,8 @@ py3dmol = "^2.1.0"
 streamlit-molstar = "^0.4.21"
 stmol = "0.0.9"
 ipython-genutils = "^0.2.0"
+gemmi = "^0.6.6"
+sh = "^2.0.7"
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.4"
 
