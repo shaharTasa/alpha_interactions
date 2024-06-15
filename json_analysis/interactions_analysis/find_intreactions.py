@@ -4,9 +4,9 @@ import numpy as np
 
 
 
-def calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids):
-    pae_threshold = 5
-    contact_prob_threshold = 0.1
+def calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,pae_threshold ,contact_prob_threshold ):
+    
+    
 
     num_tokens = full_pae.shape[0]
     unique_chain_ids = np.unique(token_chain_ids)
@@ -30,5 +30,4 @@ def calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids):
                         inter_chain_interactions.append(interaction)
     
     return inter_chain_interactions
-
 
