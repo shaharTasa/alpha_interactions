@@ -1,5 +1,4 @@
-# AlphaFold Interactions Detector
-![Screenshot](./assets/Picture3.png "App Screenshot")
+# AlphaFold Interactions Detector ![Logo](./assets/Picture3.png "Company Logo")
 
 ## Introduction
 This application is designed to detect and visualize protein interactions based on the confidence probabilities provided by the AlphaFold3 model. It allows users to deeply understand the complex interactions between proteins, which is crucial for various biological and medical research.
