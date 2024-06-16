@@ -4,11 +4,9 @@ import plotly.express as px
 
 
 def create_scatter_plot(df_interactions):
-    # Label for interaction pairs
     df_interactions['Interaction'] = df_interactions['Chain_1'] + ' :' + df_interactions['Residue_1'] + ' - ' + df_interactions['Position_1'].astype(str) \
                                     + ' <--> ' + df_interactions['Chain_2'] + ' :' + df_interactions['Residue_2'] + ' - ' + df_interactions['Position_2'].astype(str)
 
-    # Create the scatter plot
     fig = px.scatter(df_interactions, x='Probability', y='PAE', color='Interaction',
                      hover_data=['Interaction'], title="Interaction Scatter Plot",
                      labels={'PAE': 'Predicted Aligned Error', 'Probability': 'Contact Probability'})
