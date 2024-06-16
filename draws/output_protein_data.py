@@ -55,4 +55,4 @@ def draw_output_data(folder_path):
     df_interactions = tab2_raw_data(sequences, full_pae, contact_probs, token_chain_ids, tab2)
     tab3_plots(tab3, df_interactions)
     tab4_visual(folder_path, sel_model_num, tab4)   
-    tab5_inerpert(tab5)
+    # tab5_inerpert(tab5)

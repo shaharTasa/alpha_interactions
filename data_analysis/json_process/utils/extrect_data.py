@@ -39,6 +39,6 @@ def extract_data_from_summary(json_data,folder_path):
     checkbox_method(f"**chain iptm** : {str(chain_iptm).replace('[', '').replace(']','')}",'chain_iptm is The average confidence (interface pTM) in the interface between each chain and all other chains.')
     checkbox_method(f"**chain pair iptm**: {str(chain_pair_iptm[0]).replace('[', '').replace(']',''),str(chain_pair_iptm[1]).replace('[', '').replace(']','')}",f'A (num_chains, num_chains) array. Off-diagonal element (i, j) of the array contains the ipTM restricted to tokens from chains i and j. Diagonal element (i, i) contains the pTM restricted to chain i. Can be used for ranking a specific interface between two chains, when you know that they interact.')
     checkbox_method(f"**chain pair pae min** : {str(chain_pair_pae_min[0]).replace('[', '').replace(']',''),str(chain_pair_pae_min[1]).replace('[', '').replace(']','')}",' A (num_chains, num_chains) array. Element (i, j) of the array contains the lowest PAE value across rows restricted to chain i and columns restricted to chain j. This has been found to correlate with whether two chains interact or not, and in some cases can be used to distinguish binders from non-binders.')
-    checkbox_method(f"**chain pair pae_min** : {str(ranking_score)}",'A scalar in the range [-100, 1.5] that can be used for ranking predictions.')
+    checkbox_method(f"**ranking_score** : {str(ranking_score)}",'A scalar in the range [-100, 1.5] that can be used for ranking predictions.')
     
 

@@ -37,14 +37,14 @@ def tab1_data_protein(folder_path, files, sel_model_num, sequences_len, sequence
 
 
 
-def tab5_inerpert(tab5):
-    with tab5:
-        st.markdown(':petri_dish: \t :blue-background[pLDDT]: a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence.\n')
-        st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
-        st.markdown(':petri_dish: \t :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
-        st.markdown(':petri_dish: \t :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')
-        st.markdown(':petri_dish: \t :blue-background[fraction_disordered]: A scalar in the range 0-1 that indicates what fraction of the prediction structure is disordered, as measured by accessible surface area.\n')
-        st.markdown(':petri_dish: \t :blue-background[has_clash]:  A boolean indicating if the structure has a significant number of clashing atoms (more than 50% of a chain, or a chain with more than 100 clashing atoms)..\n')
-        st.markdown(':petri_dish: \t :blue-background[ranking_score]: e: A scalar in the range [-100, 1.5] that can be used for ranking predictions.\n')
-        st.code('0.8 × ipTM + 0.2 × pTM + 0.5 × disorder − 100 × has_clash')
+# def tab5_inerpert(tab5):
+#     with tab5:
+#         st.markdown(':petri_dish: \t :blue-background[pLDDT]: a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence.\n')
+#         st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
+#         st.markdown(':petri_dish: \t :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
+#         st.markdown(':petri_dish: \t :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')
+#         st.markdown(':petri_dish: \t :blue-background[fraction_disordered]: A scalar in the range 0-1 that indicates what fraction of the prediction structure is disordered, as measured by accessible surface area.\n')
+#         st.markdown(':petri_dish: \t :blue-background[has_clash]:  A boolean indicating if the structure has a significant number of clashing atoms (more than 50% of a chain, or a chain with more than 100 clashing atoms)..\n')
+#         st.markdown(':petri_dish: \t :blue-background[ranking_score] : A scalar in the range [-100, 1.5] that can be used for ranking predictions.\n')
+#         st.code('0.8 × ipTM + 0.2 × pTM + 0.5 × disorder − 100 × has_clash')
 
