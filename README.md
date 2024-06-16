@@ -1,10 +1,10 @@
 # AlphaFold Interactions Detector
-![Screenshot](./assets/image1.png "App Screenshot")
+![Screenshot](./assets/Picture3.png "App Screenshot",)
 
 ## Introduction
 This application is designed to detect and visualize protein interactions based on the confidence probabilities provided by the AlphaFold3 model. It allows users to deeply understand the complex interactions between proteins, which is crucial for various biological and medical research.
 
-## About AlphaFold
+## About AlphaFold3
 
 AlphaFold is a state-of-the-art protein structure prediction tool developed by DeepMind. It uses deep learning techniques to predict the three-dimensional structures of proteins based purely on their amino acid sequences. This technology represents a significant breakthrough in the field of bioinformatics, offering high accuracy predictions that were previously not possible without experimental methods such as X-ray crystallography or NMR spectroscopy.
 
