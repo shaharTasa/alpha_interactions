@@ -3,10 +3,11 @@
 
 ## Introduction
 This application is designed to detect and visualize protein interactions based on the confidence probabilities provided by the AlphaFold3 model. It allows users to deeply understand the complex interactions between proteins, which is crucial for various biological and medical research.
+**This app support just AlphaFold3**
 
 ## About AlphaFold3
 
-AlphaFold is a state-of-the-art protein structure prediction tool developed by DeepMind. It uses deep learning techniques to predict the three-dimensional structures of proteins based purely on their amino acid sequences. This technology represents a significant breakthrough in the field of bioinformatics, offering high accuracy predictions that were previously not possible without experimental methods such as X-ray crystallography or NMR spectroscopy.
+AlphaFold3 is a state-of-the-art protein structure prediction tool developed by DeepMind. It uses deep learning techniques to predict the three-dimensional structures of proteins based purely on their amino acid sequences. This technology represents a significant breakthrough in the field of bioinformatics, offering high accuracy predictions that were previously not possible without experimental methods such as X-ray crystallography or NMR spectroscopy.
 
 The technology behind AlphaFold is based on the use of deep neural networks that model the spatial relationships between amino acids in a protein. By predicting the distance and angles between pairs of amino acids, AlphaFold can construct a highly accurate 3D model of a protein’s structure. This capability is crucial for understanding protein function and interaction, which has far-reaching implications for drug discovery, disease understanding, and biological research.
 
@@ -32,6 +33,7 @@ To begin using the app:
 - **Data Upload**: Easy upload of your AlphaFold results.
 - **Interaction Visualization**: Detailed graphs  and 3D interactive to visualize protein interactions.
 - **Probability Analysis**: Analysis based on the confidence levels provided by AlphaFold predictions.
+
 
 ## link to streamlit:
 https://alpha-interactions.streamlit.app/
