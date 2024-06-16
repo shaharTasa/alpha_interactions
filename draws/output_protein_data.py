@@ -2,7 +2,7 @@
 import streamlit as st
 import json
 from data_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
-
+import os
 from data_analysis.best_model.output_best_model import get_best_model
 from draws.tabs import tab1_data_protein,tab2_raw_data,tab3_plots,tab4_visual,tab5_inerpert
 

@@ -3,12 +3,14 @@ import pandas as pd
 from data_analysis.interactions_analysis.find_intreactions import calculate_interactions
 from data_analysis.interactions_analysis.print_interactions_results import print_output
 from data_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
+import glob
+import os
 
 def tab4_visual(folder_path, sel_model_num, tab4):
     with tab4:
         pattern = f"*_model_{sel_model_num}.cif"
         found_files = glob.glob(os.path.join(folder_path, pattern))
-        tab4.title('CIF File Viewer for Protein Models')
+        st.subheader('CIF File Viewer for Protein Models')
         visualization_protein(found_files)
 
 def tab3_plots(tab3, df_interactions):
