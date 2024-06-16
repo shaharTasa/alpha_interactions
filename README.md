@@ -1,4 +1,4 @@
-# AlphaFold Interactions Detector <img src="./assets/Picture3.png" alt="Company Logo" width="100" height="100">
+# <img src="./assets/Picture3.png" alt="Company Logo" width="150" height="200"> AlphaFold Interactions Detector 
 
 
 ## Introduction
