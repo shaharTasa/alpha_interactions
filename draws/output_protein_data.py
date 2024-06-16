@@ -3,11 +3,11 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import streamlit as st
 import pandas as pd
 import json
-from json_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
-from json_analysis.interactions_analysis.find_intreactions import calculate_interactions
-from json_analysis.interactions_analysis.print_interactions_results import print_output
-from json_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
-from json_analysis.best_model.output_best_model import get_best_model
+from data_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
+from data_analysis.interactions_analysis.find_intreactions import calculate_interactions
+from data_analysis.interactions_analysis.print_interactions_results import print_output
+from data_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
+from data_analysis.best_model.output_best_model import get_best_model
 
 import glob
 

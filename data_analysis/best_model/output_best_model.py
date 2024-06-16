@@ -1,7 +1,7 @@
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import streamlit as st
-from json_analysis.best_model.model_number import get_model_number
+from data_analysis.best_model.model_number import get_model_number
 import json
 import os
 import re
