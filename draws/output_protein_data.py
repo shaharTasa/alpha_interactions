@@ -50,7 +50,7 @@ def draw_output_data(folder_path):
         return
     
     
-    tab1, tab2,tab3,tab4 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plots ","💊 visualization"])
+    tab1, tab2,tab3,tab4 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plot ","💊 visualization"])
     tab1_data_protein(folder_path, files, sel_model_num, sequences_len, sequences, proteins_names, atom_plddts, tab1)
     df_interactions = tab2_raw_data(sequences, full_pae, contact_probs, token_chain_ids, tab2)
     tab3_plots(tab3, df_interactions)

@@ -1,6 +1,6 @@
 from streamlit_molstar import st_molstar
 import plotly.express as px
-
+import streamlit as st
 
 
 def create_scatter_plot(df_interactions):
