@@ -3,13 +3,15 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import streamlit as st
 import pandas as pd
 import json
-from json_analysis.json_process.utils.extrect_data import extract_data_from_json
+from json_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
 from json_analysis.interactions_analysis.find_intreactions import calculate_interactions
 from json_analysis.interactions_analysis.print_interactions_results import print_output
 from json_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
+from json_analysis.best_model.output_best_model import get_best_model
+
 import glob
 
-
+    
 def draw_output_data(folder_path):
 
     try:
@@ -17,10 +19,10 @@ def draw_output_data(folder_path):
     except FileNotFoundError:
         st.error(f"The selected file path {folder_path} does not exist.")
         return
-
-    # model_number = st.number_input("select model number:", min_value=0, value=0, step=1)
-    model_number=0
-    full_data_pattern = f"_full_data_{model_number}.json"
+    
+    sel_model_num = get_best_model(files,folder_path)
+    
+    full_data_pattern = f"_full_data_{sel_model_num}.json"
     job_request_pattern = "_job_request.json"
     full_data_files = [file for file in files if file.endswith(full_data_pattern)]
     job_request_files = [file for file in files if file.endswith(job_request_pattern)]
@@ -46,11 +48,13 @@ def draw_output_data(folder_path):
 
     try:
         sequences_len, sequences, proteins_names, full_pae, atom_plddts, contact_probs, token_chain_ids  = \
-            extract_data_from_json(full_data_json, job_request_json)
+            extract_data_from_full_data_json(full_data_json, job_request_json)
 
     except Exception as e:
         st.error(f"Error during data extraction: {str(e)}")
         return
+    
+    
     tab1, tab2,tab3,tab4,tab5 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plots ","💊 visualization","📖output interpret"])
 
     
@@ -71,7 +75,7 @@ def draw_output_data(folder_path):
 
     
     with tab4:
-        pattern = f"*_model_{model_number}.cif"
+        pattern = f"*_model_{sel_model_num}.cif"
         found_files = glob.glob(os.path.join(folder_path, pattern))
         tab4.title('CIF File Viewer for Protein Models')
         visualization_protein(found_files)
@@ -80,3 +84,7 @@ def draw_output_data(folder_path):
         st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
         st.markdown(':petri_dish: \t :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
         st.markdown(':petri_dish: \t :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')
+        st.markdown(':petri_dish: \t :blue-background[fraction_disordered]: A scalar in the range 0-1 that indicates what fraction of the prediction structure is disordered, as measured by accessible surface area.\n')
+        st.markdown(':petri_dish: \t :blue-background[has_clash]:  A boolean indicating if the structure has a significant number of clashing atoms (more than 50% of a chain, or a chain with more than 100 clashing atoms)..\n')
+        st.markdown(':petri_dish: \t :blue-background[ranking_score]: e: A scalar in the range [-100, 1.5] that can be used for ranking predictions.\n')
+        st.code('0.8 × ipTM + 0.2 × pTM + 0.5 × disorder − 100 × has_clash')
