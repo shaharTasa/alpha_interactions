@@ -3,7 +3,6 @@
 
 ## Introduction
 This application is designed to detect and visualize protein interactions based on the confidence probabilities provided by the AlphaFold3 model. It allows users to deeply understand the complex interactions between proteins, which is crucial for various biological and medical research.
-**This app support just AlphaFold3**
 
 ## About AlphaFold3
 
@@ -15,6 +14,7 @@ The technology behind AlphaFold is based on the use of deep neural networks that
 In the context of this application, AlphaFold's predictive power enables the detailed analysis and visualization of protein interactions. By leveraging AlphaFold's outputs, this app assists researchers and scientists in exploring protein structures and interactions more efficiently, enhancing their ability to hypothesize and draw meaningful conclusions about biological processes.
 
 ## Usage Instructions
+**This app support only AlphaFold3.**
 
 ### Uploading Data
 To use this app, you can either:
