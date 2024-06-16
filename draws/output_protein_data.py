@@ -3,7 +3,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import streamlit as st
 import pandas as pd
 import json
-from data_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
+from data_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json,extract_data_from_summary
 from data_analysis.interactions_analysis.find_intreactions import calculate_interactions
 from data_analysis.interactions_analysis.print_interactions_results import print_output
 from data_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
@@ -56,11 +56,13 @@ def draw_output_data(folder_path):
     
     
     tab1, tab2,tab3,tab4,tab5 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plots ","💊 visualization","📖output interpret"])
+    with tab1:
+        summery_pattern = f"_summary_confidences_{sel_model_num}.json"
+        job_summery_files = [file for file in files if file.endswith(summery_pattern)]
 
-    
-    
-    print_output(tab1,sequences,sequences_len, proteins_names, atom_plddts)
-    
+        print_output(tab1,sequences,sequences_len, proteins_names, atom_plddts,job_summery_files[0],folder_path)
+
+        
     pae_threshold = tab2.slider('Select PAE Threshold', min_value=0.0, max_value=max(full_pae.flatten()), value=max(full_pae.flatten())/2, step=0.1)
     contact_prob_threshold = tab2.slider('Select Contact Probability Threshold', min_value=0.0, max_value=1.0, value=0.5, step=0.01)
     inter_chain_interactions = calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,pae_threshold ,contact_prob_threshold)
