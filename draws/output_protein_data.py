@@ -18,7 +18,8 @@ def draw_output_data(folder_path):
         st.error(f"The selected file path {folder_path} does not exist.")
         return
 
-    model_number = st.number_input("Enter the model number:", min_value=0, value=0, step=1)
+    # model_number = st.number_input("select model number:", min_value=0, value=0, step=1)
+    model_number=0
     full_data_pattern = f"_full_data_{model_number}.json"
     job_request_pattern = "_job_request.json"
     full_data_files = [file for file in files if file.endswith(full_data_pattern)]
@@ -50,7 +51,10 @@ def draw_output_data(folder_path):
     except Exception as e:
         st.error(f"Error during data extraction: {str(e)}")
         return
-    tab1, tab2,tab3,tab4 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plots ","📖output interpret"])
+    tab1, tab2,tab3,tab4,tab5 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plots ","💊 visualization","📖output interpret"])
+
+    
+    
     print_output(tab1,sequences,sequences_len, proteins_names, atom_plddts)
     
     pae_threshold = tab2.slider('Select PAE Threshold', min_value=0.0, max_value=max(full_pae.flatten()), value=max(full_pae.flatten())/2, step=0.1)
@@ -66,23 +70,17 @@ def draw_output_data(folder_path):
     
     heatmap_fig = create_scatter_plot(df_interactions)
     tab3.plotly_chart(heatmap_fig)
-    tab3.title('CIF File Viewer for Protein Models')
     
-    pattern = f"*_model_{model_number}.cif"
-    found_files = glob.glob(os.path.join(folder_path, pattern))
+
     
-    with tab3:
+    with tab4:
+        pattern = f"*_model_{model_number}.cif"
+        found_files = glob.glob(os.path.join(folder_path, pattern))
+        tab4.title('CIF File Viewer for Protein Models')
         visualization_protein(found_files)
 # Streamlit app
-    with tab4:
-        st.markdown("*Streamlit* is **really** ***cool***.")
-        st.markdown('''
-            :red[Streamlit] :orange[can] :green[write] :blue[text] :violet[in]
-            :gray[pretty] :rainbow[colors] and :blue-background[highlight] text.''')
-        st.markdown("Here's a bouquet &mdash;\
-                    :tulip::cherry_blossom::rose::hibiscus::sunflower::blossom:")
-
-        st.markdown(':petri_dish: :blue-background[pLDDT]: a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence.\n')
-        st.markdown(':petri_dish: :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
-        st.markdown(':petri_dish: :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
-        st.markdown(':petri_dish: :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')
+    with tab5:
+        st.markdown(':petri_dish: \t :blue-background[pLDDT]: a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence.\n')
+        st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
+        st.markdown(':petri_dish: \t :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
+        st.markdown(':petri_dish: \t :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')

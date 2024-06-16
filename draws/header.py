@@ -1,5 +1,6 @@
 import streamlit as st
 
 def draw_header():
-    st.image('./assets/logo_protein.png')
-    st.title("_This_ is **Alpha fold interactions detector** ")
+    col1,col2=st.columns([15,100])
+    col2.title("_This_ is **Alpha fold interactions detector** ")
+    col1.image('./assets/Picture1.png')
