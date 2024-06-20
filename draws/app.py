@@ -1,4 +1,3 @@
-import streamlit as st
 from draws.header import draw_header
 from draws.input_receiver import draw_input_receiver
 from draws.output_protein_data import draw_output_data

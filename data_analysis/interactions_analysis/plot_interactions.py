@@ -1,6 +1,5 @@
 from streamlit_molstar import st_molstar
 import plotly.express as px
-import streamlit as st
 
 
 def create_scatter_plot(df_interactions):
@@ -25,3 +24,6 @@ def visualization_protein(found_files):
     cif_file_path = found_files[0]
     st_molstar(cif_file_path, key='3',height=400)
 
+
+
+    
