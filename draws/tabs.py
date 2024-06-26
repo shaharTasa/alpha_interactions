@@ -5,19 +5,10 @@ from data_analysis.interactions_analysis.find_intreactions import calculate_inte
 from data_analysis.interactions_analysis.print_interactions_results import print_output
 from data_analysis.interactions_analysis.plot_interactions import create_scatter_plot,visualization_protein
 from data_analysis.interactions_analysis.output_script_for_chimerax import writing_commends_to_file_and_create_button
-from draws.visual_mol import show_cif
 import glob
 import os
 from streamlit.components.v1 import html
 
-def tab4_visual(folder_path, sel_model_num, tab4):
-    with tab4:
-        pattern = f"*_model_{sel_model_num}.cif"
-        found_files = glob.glob(os.path.join(folder_path, pattern))
-        tab4.subheader('CIF File Viewer for Protein Models')
-        st.write(''.join(found_files))
-        view = show_cif(''.join(found_files))
-        html(view)
 def tab4_visual(folder_path, sel_model_num, tab4):
     with tab4:
         pattern = f"*_model_{sel_model_num}.cif"
@@ -42,7 +33,6 @@ def tab2_raw_data(sequences, full_pae, contact_probs, token_chain_ids, tab2):
         pae_threshold = tab2.slider('Select PAE Threshold', min_value=0.0, max_value=max(full_pae.flatten()), value=max(full_pae.flatten())/2, step=0.1)
         contact_prob_threshold = tab2.slider('Select Contact Probability Threshold', min_value=0.0, max_value=1.0, value=0.5, step=0.01)
         inter_chain_interactions = calculate_interactions(sequences, full_pae, contact_probs, token_chain_ids,pae_threshold ,contact_prob_threshold)
-        st.write(inter_chain_interactions)
         df_interactions = pd.DataFrame(inter_chain_interactions,columns=['Chain_1','Residue_1','Position_1','Chain_2','Residue_2','Position_2','PAE','Probability']).sort_values(by='Probability', ascending=False)
         tab2.info('Notice : **low PAE** and **high Probability** means high probability of connection . ', icon="ℹ️")
         tab2.write(df_interactions)
