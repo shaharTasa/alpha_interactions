@@ -1,4 +1,3 @@
-from msilib.schema import Component
 import streamlit as st
 import pandas as pd
 from data_analysis.interactions_analysis.find_intreactions import calculate_interactions
