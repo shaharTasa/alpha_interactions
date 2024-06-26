@@ -7,7 +7,6 @@ from data_analysis.interactions_analysis.plot_interactions import create_scatter
 from data_analysis.interactions_analysis.output_script_for_chimerax import writing_commends_to_file_and_create_button
 import glob
 import os
-from streamlit.components.v1 import html
 
 def tab4_visual(folder_path, sel_model_num, tab4):
     with tab4:
