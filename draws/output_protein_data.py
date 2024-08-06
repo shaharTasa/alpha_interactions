@@ -4,7 +4,7 @@ import json
 from data_analysis.json_process.utils.extrect_data import extract_data_from_full_data_json
 import os
 from data_analysis.best_model.output_best_model import get_best_model
-from draws.tabs import tab1_data_protein,tab2_raw_data,tab3_plots,tab4_visual
+from draws.tabs import tab1_data_protein,tab2_raw_data,tab3_plots,tab4_visual,tab5_interpret
 
     
 def draw_output_data(folder_path):
@@ -50,9 +50,10 @@ def draw_output_data(folder_path):
         return
     
     
-    tab1, tab2,tab3,tab4 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plot ","💊 visualization"])
+    tab1, tab2,tab3,tab4,tab5 = st.tabs([ "🗃 Data of the protein"," 📝 raw data","📈plot ","💊 visualization","👩🏼‍🏫explanation"])
     tab1_data_protein(folder_path, files, sel_model_num, sequences_len, sequences, proteins_names, atom_plddts, tab1)
     df_interactions = tab2_raw_data(sequences, full_pae, contact_probs, token_chain_ids, tab2)
     tab3_plots(tab3, df_interactions)
-    tab4_visual(folder_path, sel_model_num, tab4)   
+    tab4_visual(folder_path, sel_model_num, tab4)
+    tab5_interpret(tab5)
     # tab5_inerpert(tab5)

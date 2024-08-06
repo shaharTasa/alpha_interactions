@@ -47,14 +47,11 @@ def tab1_data_protein(folder_path, files, sel_model_num, sequences_len, sequence
 
 
 
-# def tab5_inerpert(tab5):
-#     with tab5:
-#         st.markdown(':petri_dish: \t :blue-background[pLDDT]: a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence.\n')
-#         st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: estimate of the error in the relative position and orientation between two tokens in the predicted structure. Higher values indicate higher predicted error and therefore lower confidence\n')
-#         st.markdown(':petri_dish: \t :blue-background[ptm]: A scalar in the range 0-1 indicating the predicted TM-score for the full structure.\n')
-#         st.markdown(':petri_dish: \t :blue-background[iptm]: A scalar in the range 0-1 indicating predicted interface TM-score (confidence in the predicted interfaces) for all interfaces in the structure.\n')
-#         st.markdown(':petri_dish: \t :blue-background[fraction_disordered]: A scalar in the range 0-1 that indicates what fraction of the prediction structure is disordered, as measured by accessible surface area.\n')
-#         st.markdown(':petri_dish: \t :blue-background[has_clash]:  A boolean indicating if the structure has a significant number of clashing atoms (more than 50% of a chain, or a chain with more than 100 clashing atoms)..\n')
-#         st.markdown(':petri_dish: \t :blue-background[ranking_score] : A scalar in the range [-100, 1.5] that can be used for ranking predictions.\n')
-#         st.code('0.8 × ipTM + 0.2 × pTM + 0.5 × disorder − 100 × has_clash')
+def tab5_interpret(tab5):
+    with tab5:
+        st.markdown(':petri_dish: \t :blue-background[Contact Probability (contact prob)]: Contact probability measures the likelihood that two residues (amino acids) in a protein will be in contact with each other in the folded structure. A high contact probability indicates that the residues are likely to be close together in the 3D structure. This metric is useful for identifying potential interactions within the protein.\n')
+        st.markdown(':petri_dish: \t :blue-background[PAE (predicted aligned error)]: PAE is a metric that provides a per-residue estimate of the expected error in the predicted distance between two residues in the structure. A lower PAE value indicates higher confidence in the predicted distance between those residues. PAE is useful for identifying regions of the protein where the prediction is more or less accurate.\n')
+        st.markdown(':petri_dish: \t :blue-background[ptm]: The TM-score is a metric for measuring the similarity between two protein structures. The PTM score is AlphaFolds predicted TM-score for the entire protein. It assesses how confident AlphaFold is about the global accuracy of its predicted model. A higher PTM score indicates higher confidence in the overall structure of the protein.\n')
+        st.markdown(':petri_dish: \t :blue-background[iptm]: The ipTM score is a specific version of the TM-score for protein complexes. It evaluates the confidence in the predicted interface between two proteins or protein domains. This score is particularly useful for assessing the reliability of predicted interactions between different parts of a protein or between different proteins.\n')
+        st.markdown(':petri_dish: \t :blue-background[summery] : Contact probability focuses on the likelihood of residue-residue interactions, while PTM and ipTM scores provide global and interface-level confidence metrics for the entire structure or complex. PAE provides residue-level confidence estimates, indicating how accurately specific parts of the protein are predicted..\n')
 
