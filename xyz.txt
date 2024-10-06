@@ -1,0 +1,17 @@
+sel /A:416 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:552 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:552 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:553 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:556 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:556 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:593 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:678 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:678 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:678 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:678 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:679 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:679 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:679 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:679 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:680 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
+sel /A:681 ; color sel green ; label sel residues color black bgColor yellow text {0.name}{0.number} height 0.8 offset -2,1,0 
